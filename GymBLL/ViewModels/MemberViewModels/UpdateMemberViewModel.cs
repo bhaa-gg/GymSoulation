@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GymBLL.ViewModels.MemberViewModels
 {
-    internal class UpdateMemberViewModel
+    public class UpdateMemberViewModel
     {
 
         public string Name { get; set; } = null!;

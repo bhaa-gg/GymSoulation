@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GymBLL.ViewModels.MemberViewModels
 {
-    internal class HealthRecordViewModel
+    public class HealthRecordViewModel
     {
 
 

@@ -163,6 +163,22 @@ namespace GymBLL.Services.Classes
         }
 
 
+
+
+        public IEnumerable<TrainerSelectViewModel> GetAllTrainersForSelect()
+        {
+            var trainers = _unitOfWork.GetRepository<Trainer>().GetAll();
+            return _mapper.Map<IEnumerable<TrainerSelectViewModel>>(trainers);
+        }
+
+        public IEnumerable<CategorySelectViewModel> GetAllCategoriesForSelect()
+        {
+            var Category = _unitOfWork.GetRepository<Category>().GetAll();
+            return _mapper.Map<IEnumerable<CategorySelectViewModel>>(Category);
+        }
+
+
+
         #region Helpers
 
         private bool IsTrainnerExists(int TrainerId) => _unitOfWork.GetRepository<Trainer>().GetById(TrainerId) is not null;
@@ -197,6 +213,8 @@ namespace GymBLL.Services.Classes
         }
 
         private bool IsValidDateRange(DateTime StartDate, DateTime EndDate) => StartDate < EndDate;
+
+       
 
         #endregion
 

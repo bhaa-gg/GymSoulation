@@ -1,4 +1,5 @@
 ﻿using GymDAL.Entities.Enums;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,8 +15,13 @@ RegularExpression
 */
 namespace GymBLL.ViewModels.MemberViewModels
 {
-    internal class CreateMemberViewModel
+    public class CreateMemberViewModel
     {
+
+
+        [Required(ErrorMessage ="Photo Is Required")]
+        [Display(Name="Profile Photo")]
+        public IFormFile PhotoFile{ get; set; }= null!;
 
         #region Member
         [Required(ErrorMessage = "Name Is Required")]

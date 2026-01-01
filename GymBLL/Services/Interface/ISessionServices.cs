@@ -16,10 +16,13 @@ namespace GymBLL.Services.Interface
 
         bool CreateSession(CreateSessionViewModel model);
         bool RemoveSession(int sessionId);
-
+        IEnumerable<TrainerSelectViewModel> GetAllTrainersForSelect();
+        IEnumerable<CategorySelectViewModel> GetAllCategoriesForSelect();
 
         UpdateSessionViewModel? GetSessionToUpdate(int sessionId);
         bool UpdateSession(int sessionId , UpdateSessionViewModel updatedSession );
+
+     
 
     }
 }

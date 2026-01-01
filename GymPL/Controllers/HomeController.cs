@@ -1,32 +1,74 @@
-using System.Diagnostics;
-using GymPL.Models;
+﻿using GymBLL.Services.Interface;
+using GymDAL.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymPL.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IAnalyticService _analyticService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IAnalyticService analyticService)
         {
-            _logger = logger;
+            _analyticService = analyticService;
         }
 
-        public IActionResult Index()
+        public ActionResult Index()
         {
-            return View();
+            var Data = _analyticService.GetAnalyticData();
+
+            return View(Data);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        #region TRY
+
+
+        //[NonAction] // not have route
+        //public ViewResult Index()
+        //{
+        //    return new  ViewResult();
+        //}
+
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
+
+        //public JsonResult Trainer()
+        //{
+        //    return Json(
+        //        new List<Trainer>()
+        //        {
+        //            new(){Name ="Bahaa", Phone="01210031428"},
+        //            new(){Name ="Ahmed", Phone="01210031428"}
+
+        //        }
+        //        );
+        //}
+
+        //public RedirectResult Bahaa()
+        //{
+        //    return Redirect("https://enginerbhaa.netlify.app/");
+        //}
+
+
+        //public ContentResult Privacy()
+        //{
+        //    return Content("<h1>Heellooo</h1>" , "text/html");
+        //}
+
+        //public FileResult DownloadFile()
+        //{
+        //    var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "css", "site.css");
+        //    var fileBytes = System.IO.File.ReadAllBytes(filePath);
+        //    return File(fileBytes, "text/css", "DownloadbleFile.css");
+        //}
+        //public ActionResult EmptyAction()
+        //{
+        //return new EmptyResult();
+        //}
+        #endregion
+
     }
 }

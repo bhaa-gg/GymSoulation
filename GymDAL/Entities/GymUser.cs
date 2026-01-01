@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GymDAL.Entities
 {
-    public abstract class GymUser : BaseEntity
+    public abstract class   GymUser : BaseEntity
     {
 
         public string Name { get; set; } = null!;

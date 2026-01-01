@@ -106,7 +106,9 @@ namespace GymDAL.Data.Migrations
                         .HasColumnType("varchar");
 
                     b.Property<string>("Photo")
-                        .HasColumnType("nvarchar(max)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("nvarchar(max)")
+                        .HasDefaultValue("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5ExGEHlPHckD3YbxH6e4kr25Ho2X4NifiQA&s");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");

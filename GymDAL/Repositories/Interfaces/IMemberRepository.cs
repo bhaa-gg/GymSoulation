@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 
 namespace GymDAL.Repositories.Interfaces
 {
-    internal interface IMemberRepository : IGenericRepository<Member>
+    public interface IMemberRepository : IGenericRepository<Member>
     {}
 }

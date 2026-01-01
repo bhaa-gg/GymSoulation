@@ -1,7 +1,12 @@
 using GymBLL;
+using GymBLL.Services.AttachmentServices;
+using GymBLL.Services.Classes;
+using GymBLL.Services.Interface;
 using GymDAL.Data.Contexts;
 using GymDAL.Repositories.Classes;
 using GymDAL.Repositories.Interfaces;
+using GymManagementSystemBLL.Services.Classes;
+using GymManagementSystemBLL.Services.Interfaces;
 using GymPL.DataSeed;
 using Microsoft.EntityFrameworkCore;
 namespace GymPL
@@ -29,8 +34,15 @@ namespace GymPL
             //builder.Services.AddScoped<IPlanRepository ,PlanRepository>();
 
 
-            builder.Services.AddScoped <IUnitOfWork ,UnitOfWork> ();
+            builder.Services.AddScoped <IUnitOfWork , UnitOfWork> ();
             builder.Services.AddScoped<ISessionRepository ,SessionRepository>();
+            builder.Services.AddScoped<IAnalyticService, AnalyticService>();
+            builder.Services.AddScoped<IAnalyticService, AnalyticService>();
+            builder.Services.AddScoped<IMemberServices ,MemberServices>();
+            builder.Services.AddScoped<ITrainerService , TrainerService>();
+            builder.Services.AddScoped<IPlanServices, PlanServices>();
+            builder.Services.AddScoped<ISessionServices, SessionServices>();
+            builder.Services.AddScoped<IAttachmentServices, AttachmentServices>();
             builder.Services.AddAutoMapper(X=>X.AddProfile(new MappingProfiles()));
 
             #endregion
@@ -62,9 +74,18 @@ namespace GymPL
             app.UseAuthorization();
 
             app.MapStaticAssets();
+
+
+            //app.MapControllerRoute(
+            //   name: "Trainers",
+            //   pattern: "coach/{action}",
+            //   defaults : new{ controller = "Trainer" , action="Index" }
+            //   );
+
+
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}")
+                pattern: "{controller=Home}/{action=Index}/{id:int?}")
                 .WithStaticAssets();
 
             app.Run();
