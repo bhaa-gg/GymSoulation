@@ -1,6 +1,10 @@
 ﻿@using GymBLL.Services
 @model IEnumerable<MemberViewModel>
 
+@{
+        ViewData["Title"] = "Memebrs";
+}
+
 @if (TempData["SuccessMessage"] is not null)
 {
     <div style="right:20px ; top:20px;" id="Alert" class="alert position-fixed   alert-success alert-dismissible fade show">

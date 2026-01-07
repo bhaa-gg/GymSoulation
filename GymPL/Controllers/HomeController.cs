@@ -1,9 +1,11 @@
 ﻿using GymBLL.Services.Interface;
 using GymDAL.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymPL.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly IAnalyticService _analyticService;

@@ -2,11 +2,13 @@
 using GymDAL.Entities;
 using GymManagementBLL.ViewModels.TrainerViewModels;
 using GymManagementSystemBLL.Services.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NuGet.DependencyResolver;
 
 namespace GymPL.Controllers
 {
+    [Authorize]
     public class TrainerController : Controller 
     {
         private readonly ITrainerService _trainerService;

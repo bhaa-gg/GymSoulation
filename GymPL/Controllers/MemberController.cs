@@ -1,10 +1,13 @@
 ﻿using GymBLL.Services.Classes;
 using GymBLL.Services.Interface;
 using GymBLL.ViewModels.MemberViewModels;
+using GymDAL.Constant;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymPL.Controllers
 {
+    [Authorize(Roles = "SUPERADMIN")]
     public class MemberController : Controller
     {
         private readonly IMemberServices _memberServices;

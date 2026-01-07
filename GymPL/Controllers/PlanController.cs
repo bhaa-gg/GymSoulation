@@ -1,10 +1,12 @@
 ﻿using GymBLL.Services.Interface;
 using GymBLL.ViewModels.PlanViewModels;
 using GymDAL.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymPL.Controllers
 {
+    [Authorize]
     public class PlanController : Controller
     {
         private readonly IPlanServices _planServices;
